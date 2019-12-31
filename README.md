@@ -2,7 +2,8 @@ teamtreehouse - project - #2
 1. Pagination Link and a Searchable Form project
 2. The requirement for this project is to use only Vanilla or pure JavaScript
    and to also use a modern web development techniques like Unobtrusive JavaScript 
-   and Progressive Enhancement.
+   and Progressive Enhancement. Please note that in the project, the search form will remove from on 
+   the page when javaScript is disabled in the browser but will show when javaScript is enabled again.
  
  Below are the functions that are used in this project
  * The showPage() -- this function is used to show a maximun of 10 items per page
