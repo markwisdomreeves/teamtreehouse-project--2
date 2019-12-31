@@ -1,4 +1,7 @@
 teamtreehouse - project - #2
+
+I am going for “Exceeds Expectations” grade in this project.
+
 1. Pagination Link and a Searchable Form project
 2. The requirement for this project is to use only Vanilla or pure JavaScript
    and to also use a modern web development techniques like Unobtrusive JavaScript 
