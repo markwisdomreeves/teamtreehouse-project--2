@@ -82,7 +82,7 @@ FSJS project 2 - List Filter and Pagination
                }
                   e.target.classList.add('active');
                   /* calling the showPage function here and passing in the 
-                 students List and pagination items */
+                  students List and pagination items */
                showPage(studentsList, buttonLink);
 
             });
@@ -93,9 +93,11 @@ FSJS project 2 - List Filter and Pagination
        showPage(studentsList, showFirstPage);
        appendPageLinks(studentsList);
 
-      /* This code is for exceeds grade: the implementation of this code 
-         is to create a searchable or filterable search form that work as
-         Progressive enhancement & unobtrusive JavaScript */
+
+      /* This implementation is going for exceeds grade: This code
+         will create a searchable or filterable search form using the DOM
+         and it will remove from the page when javaScript is disabled in the browser
+         but will show when javaScript is enabled.(Progressive enhancement & unobtrusive JavaScript)*/
          
          // Create search element for the search component
          let createParentDiv = document.createElement('div');                                   
@@ -111,13 +113,14 @@ FSJS project 2 - List Filter and Pagination
          
          // build out message to display when no items found                                                      
          let pageDiv = document.querySelector('.page');
-         let alertText = document.createElement('h1'); 
-         alertText.textContent = `Sorry, your search request did not match!`;
+         let alertText = document.createElement('h1');
+         alertText.classList.add('userError'); 
+         alertText.textContent = `Sorry, your search request for did not match!`;
          pageDiv.appendChild(alertText);
          alertText.style.display = 'none';
-         
 
-         function searchInputValue(userInput, searchItems) {  
+        
+         function searchInputValue(userInput, searchItems) {
             let searchListResults = [];
             let parentDivContainer = document.querySelector('.page');
             let paginationContainer = document.querySelector('.pagination');  
@@ -126,11 +129,10 @@ FSJS project 2 - List Filter and Pagination
                let filterResults = studentsList[i].textContent;
                if (filterResults.toLowerCase().includes(userInput.value.toLowerCase())) {
                   studentsList[i].style.display = '';
-                  searchListResults.push(studentsList[i]);   
+                  searchListResults.push(studentsList[i]);     
                }
                // checking to see if the search List Result is empty or not
-               if (searchListResults.length === 0 || searchListResults.length === '' || 
-                   searchListResults.length > -1) {
+               if (searchListResults.length === 0) {
                   alertText.style.display = '';
                } else {
                   alertText.style.display = 'none';
@@ -144,10 +146,11 @@ FSJS project 2 - List Filter and Pagination
 
          /* this add event listener callback function will run when the user
          start searching for a user name in the search bar */
-         createParentDiv.addEventListener('keyup', () => {
+         createParentDiv.addEventListener('keyup', (event) => {
+            let userError = event.target.value;
+            alertText.textContent = `Sorry, your search request for the value ( ${userError} ) did not match any search!`;
             searchInputValue(searchInput, allStudentTitles)
-         });
-
-
+      });
+      
 
 });

@@ -4,6 +4,15 @@ body{
   color: #222;
 }
 
+/* This is my own css style: this style is use to 
+telling the user about their search error */
+
+.userError {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: yellowgreen;
+}
+
 .page{
   margin: 50px auto;
   width: 70%;
